@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для самых лучших близняшек!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            color: #333;
+            transition: all 0.5s;
+        }
+        .dark-mode {
+            background: linear-gradient(45deg, #2c3e50, #4a6491);
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .dark-mode .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+        h1 {
+            color: #d23669;
+            font-size: 2.5em;
+            transition: all 0.3s;
+        }
+        .dark-mode h1 {
+            color: #ff6b81;
+        }
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            overflow: hidden;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dark-mode .photo-frame {
+            border: 5px solid #333;
+        }
+        .wish {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .dark-mode .wish {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        button {
+            background-color: #d23669;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #a5274a;
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+            animation: fall 5s linear forwards;
+            z-index: 10;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 5px;
+            animation: explode 1s ease-out forwards;
+            z-index: 5;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(30);
+                opacity: 0;
+            }
+        }
+        .birthday-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5em;
+            font-weight: bold;
+            color: gold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            opacity: 0;
+            z-index: 20;
+            animation: textAppear 3s ease-in-out forwards;
+        }
+        @keyframes textAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            20% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+        }
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            animation: float 4s ease-in infinite;
+            z-index: 15;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 С Днём Рождения! 🎉</h1>
+        <h2>Вероника и Ангелина Дёмины</h2>
+        
+        <div>
+            <div class="photo-frame">
+                <img src="https://sun9-71.userapi.com/s/v1/if2/5VofsJHVNzmcWXfGltapiGOfQfq8bSBjFWBFThRC_aTyFu4o4j0Een-DaiRx2h53vOg8xKI6R-R5kUARhFZbfoo9.jpg?quality=95&as=32x24,48x36,72x55,108x82,160x122,240x182,360x274,480x365,540x410,640x487,720x547,1080x821&from=bu&cs=1080x0" alt="Вероника">
+            </div>
+            <div class="photo-frame">
+                <img src="angelina.jpg" alt="Ангелина">
+            </div>
+        </div>
+        
+        <p>Дорогие мои близняшки! В этот особенный день хочу сказать вам...</p>
+        
+        <button onclick="showWishes()">Открыть пожелания</button>
+        
+        <div id="wishes" class="hidden">
+            <div class="wish">
+                <h3>Для Вероники:</h3>
+                <p>Пусть твоя жизнь будет наполнена такими же яркими красками, как твоя улыбка! Желаю тебе находить счастье в мелочах и никогда не терять того тепла, которое ты даришь окружающим.</p>
+                <p>Пусть каждый новый день приносит тебе повод для радости, а на жизненном пути встречаются только хорошие люди. Оставайся такой же мудрой, доброй и прекрасной!</p>
+            </div>
+            
+            <div class="wish">
+                <h3>Для Ангелины:</h3>
+                <p>Пусть твое сердце всегда остается таким же чутким и отзывчивым! Желаю тебе крепкого здоровья, безграничного счастья и осуществления самых заветных мечтаний.</p>
+                <p>Пусть рядом будут люди, которые ценят тебя по-настоящему, а в душе всегда живет детская непосредственность и вера в чудеса. Ты заслуживаешь всего самого лучшего!</p>
+            </div>
+            
+            <div class="wish">
+                <h3>Для вас обеих:</h3>
+                <p>Ваша сестринская связь - это настоящее чудо! Пусть вы всегда остаетесь друг для друга поддержкой и опорой, делите не только дни рождения, но и все радости жизни.</p>
+                <p>Желаю вам синхронного счастья, взаимопонимания без слов и множества общих приятных моментов. Пусть ваша жизнь будет такой же гармоничной, как ваша близнецовая связь!</p>
+                <p>Пусть в вашем доме всегда царят уют и гармония, а в сердцах - любовь и спокойствие. Оставайтесь такими же лучистыми, жизнерадостными и невероятными!</p>
+            </div>
+            
+            <div class="wish">
+                <h3>От всего сердца:</h3>
+                <p>Спасибо вам за то, что вы есть! За ваши улыбки, за вашу искренность, за то тепло, которое вы дарите этому миру. Пусть в вашей жизни будет больше поводов для радости, чем для грусти, больше смеха, чем слез, больше счастливых случайностей, чем разочарований.</p>
+                <p>Пусть сбудутся все ваши мечты, даже те, о которых вы пока не догадываетесь. Живите ярко, любите сильно, мечтайте смело! И знайте, что вы делаете этот мир лучше просто тем, что в нем есть.</p>
+            </div>
+            
+            <button onclick="startCelebration()">🎇 Запустить праздник!</button>
+        </div>
+        
+        <div id="footer" style="margin-top: 30px; font-style: italic;">
+            С бесконечной любовью, ваш Миша ❤️
+        </div>
+    </div>
+
+    <script>
+        function showWishes() {
+            document.getElementById('wishes').classList.remove('hidden');
+        }
+        
+        function createFirework(x, y, color) {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+            firework.style.color = color;
+            firework.style.backgroundColor = color;
+            document.body.appendChild(firework);
+            
+            setTimeout(() => {
+                firework.remove();
+            }, 1000);
+            
+            for (let i = 0; i < 50; i++) {
+                const spark = document.createElement('div');
+                spark.classList.add('confetti');
+                spark.style.left = x + 'px';
+                spark.style.top = y + 'px';
+                spark.style.backgroundColor = color;
+                spark.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                spark.style.width = (Math.random() * 8 + 2) + 'px';
+                spark.style.height = (Math.random() * 8 + 2) + 'px';
+                
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 100 + 50;
+                const xMove = Math.cos(angle) * distance;
+                const yMove = Math.sin(angle) * distance;
+                
+                spark.style.transform = `translate(${xMove}px, ${yMove}px)`;
+                document.body.appendChild(spark);
+                
+                setTimeout(() => {
+                    spark.remove();
+                }, 5000);
+            }
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.bottom = '-50px';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+        
+        function showBirthdayText() {
+            const text = document.createElement('div');
+            text.classList.add('birthday-text');
+            text.textContent = 'С Днём Рождения!';
+            document.body.appendChild(text);
+            
+            setTimeout(() => {
+                text.remove();
+            }, 3000);
+        }
+        
+        function startCelebration() {
+            document.body.classList.add('dark-mode');
+            showBirthdayText();
+            
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8800'];
+            
+            const interval = setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight / 2;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                createFirework(x, y, color);
+                
+                if (Math.random() > 0.7) {
+                    createHeart();
+                }
+            }, 300);
+            
+            setTimeout(() => {
+                clearInterval(interval);
+                document.body.classList.remove('dark-mode');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
